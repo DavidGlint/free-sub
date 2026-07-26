@@ -2,7 +2,7 @@ name: Update Free Sub
 
 on:
   schedule:
-    - cron: '0 * * * *'
+    - cron: '0 * * *'
   workflow_dispatch:
 
 permissions:
@@ -11,7 +11,7 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -22,18 +22,41 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.x'
+          python-version: '3.12'
+
+      - name: Cache Sing-box Rule Sets
+        id: cache-rule-sets
+        uses: actions/cache@v4
+        with:
+          path: ~/.local/share/sing-box
+          key: sing-box-rules-${{ hashFiles('build.py') }}-${{ github.run_id }}
+          restore-keys: |
+            sing-box-rules-${{ hashFiles('build.py') }}-
+          enableCrossOsArchive: true
+
+      - name: Pre-download Rule Sets (if cache miss or expired)
+        if: steps.cache-rule-sets.outputs.cache-hit != 'true'
+        run: |
+          mkdir -p ~/.local/share/sing-box
+          echo "Downloading rule sets..."
+          curl -L -o ~/.local/share/sing-box/geosite-cn.srs \
+            https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-cn.srs
+          curl -L -o ~/.local/share/sing-box/geoip-cn.srs \
+            https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs
+          curl -L -o ~/.local/share/sing-box/geosite-geolocation-!cn.srs \
+            https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-!cn.srs
+          echo "Rule sets downloaded successfully."
 
       - name: Build sub
         run: |
           python -c "import build" 2>/dev/null || true
           python build.py
-          echo "---"
-          ls -la dist/
-          echo "---"
+          echo "========== Clash YAML Preview =========="
           head -20 dist/clash.yaml
-          echo "---"
-          wc -l dist/clash.yaml
+          echo "Lines: $(wc -l < dist/clash.yaml)"
+          echo "========== Sing-box JSON Preview =========="
+          python -c "import json; json.load(open('dist/config.json'))" && echo "JSON Valid" || echo "JSON Invalid"
+          echo "Size: $(wc -c < dist/config.json) bytes"
 
       - name: Force commit & push
         run: |
@@ -41,6 +64,6 @@ jobs:
           git config user.email "actions@github.com"
           git add -A dist/
           git status
-          git diff --cached --quiet && echo "STILL_NO_CHANGE" && exit 0
+          git diff --cached --quiet && echo "No changes detected, skipping commit." && exit 0
           git commit -m "chore(sub): auto update $(date -u '+%Y%m%d %H:%M') UTC"
           git push
