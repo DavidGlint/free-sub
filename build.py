@@ -11,6 +11,7 @@ import json
 import logging
 import urllib.request
 import urllib.error
+import yaml
 from dataclasses import dataclass, field
 from typing import Optional
 from collections import OrderedDict
@@ -92,7 +93,7 @@ def try_parse_clash(text: str) -> list[ProxyNode]:
         lines = item.splitlines()
         if not lines:
             continue
-        name = lines.strip().strip('"').strip("'")
+        name = lines[0].strip().strip('"').strip("'")
         raw = {"name": name}
         for line in lines[1:]:
             line = line.rstrip()
@@ -233,41 +234,101 @@ def try_parse_base64(text: str) -> list[ProxyNode]:
 
 # ==================== 格式渲染层 ====================
 def render_clash_yaml(proxies: list[ProxyNode]) -> str:
-    essential = ["type", "server", "port", "cipher", "password", "uuid",
-                 "alterId", "network", "plugin-opts", "sni", "udp"]
-    out = [
-        "mixed-port: 7890", "allow-lan: true", "mode: Rule",
-        "log-level: info", "external-controller: 127.0.0.1:9090", "", "proxies:",
-    ]
+    """使用 pyyaml 生成标准 Clash/Mihomo 配置文件"""
     names = []
+    clash_proxies = []
+
     for p in proxies:
         name = p.name or f"node-{len(names) + 1}"
         names.append(name)
-        out.append(f'  - name: "{name}"')
-        for k in essential:
-            if k in p.raw_clash:
-                v = p.raw_clash[k]
-                if isinstance(v, str):
-                    v = f"\"{v}\""
-                elif isinstance(v, bool):
-                    v = "true" if v else "false"
-                out.append(f"    {k}: {v}")
-        out.append("")
 
-    out += [
-        "proxy-groups:",
-        "  - name: Proxy", "    type: select", "    proxies:", "      - Auto",
+        # 优先使用原始 Clash 数据，确保字段完整且格式正确
+        if p.raw_clash and p.type == "clash":
+            proxy_dict = dict(p.raw_clash)
+            # 确保 name 字段与统一命名一致
+            proxy_dict["name"] = name
+            clash_proxies.append(proxy_dict)
+        else:
+            # 兜底：从中间格式构建基础字典
+            proxy_dict = {
+                "name": name,
+                "type": p.type,
+                "server": p.server,
+                "port": p.port,
+            }
+            if p.type == "vmess":
+                proxy_dict.update({
+                    "uuid": p.uuid,
+                    "alterId": p.alter_id,
+                    "cipher": p.cipher,
+                    "network": p.network,
+                })
+                if p.network == "ws":
+                    proxy_dict["ws-opts"] = {
+                        "path": p.ws_path,
+                        "headers": {"Host": p.ws_host} if p.ws_host else {}
+                    }
+                elif p.network == "grpc":
+                    proxy_dict["grpc-opts"] = {
+                        "grpc-service-name": p.grpc_service
+                    }
+            elif p.type == "ss":
+                proxy_dict.update({
+                    "cipher": p.cipher,
+                    "password": p.password,
+                })
+            elif p.type == "trojan":
+                proxy_dict.update({
+                    "password": p.password,
+                    "sni": p.sni or p.server,
+                    "udp": p.udp,
+                })
+            elif p.type == "vless":
+                proxy_dict.update({
+                    "uuid": p.uuid,
+                    "network": p.network,
+                    "sni": p.sni or p.server,
+                    "udp": p.udp,
+                })
+            clash_proxies.append(proxy_dict)
+
+    # 构建策略组
+    proxy_tags = names[:30]
+    proxy_groups = [
+        {
+            "name": "Proxy",
+            "type": "select",
+            "proxies": ["Auto"] + proxy_tags,
+        },
+        {
+            "name": "Auto",
+            "type": "url-test",
+            "proxies": proxy_tags,
+            "url": "http://www.gstatic.com/generate_204",
+            "interval": 300,
+        },
     ]
-    out.extend([f'      - "{n}"' for n in names[:30]])
-    out.extend([
-        "  - name: Auto", "    type: url-test", "    proxies:",
-    ])
-    out.extend([f'      - "{n}"' for n in names[:30]])
-    out.extend([
-        "    url: http://www.gstatic.com/generate_204", "    interval: 300", "",
-        "rules:", "  - MATCH,Proxy",
-    ])
-    return "\n".join(out)
+
+    # 组装完整配置字典
+    config = {
+        "mixed-port": 7890,
+        "allow-lan": True,
+        "mode": "Rule",
+        "log-level": "info",
+        "external-controller": "127.0.0.1:9090",
+        "proxies": clash_proxies,
+        "proxy-groups": proxy_groups,
+        "rules": ["MATCH,Proxy"],
+    }
+
+    # 使用 yaml.dump 生成标准 YAML，禁止中文转义，使用 2 空格缩进
+    return yaml.dump(
+        config,
+        allow_unicode=True,
+        default_flow_style=False,
+        indent=2,
+        sort_keys=False,
+    )
 
 
 def _parse_vmess_transport_for_singbox(p: ProxyNode) -> dict:
