@@ -1,0 +1,1807 @@
+{
+  "log": {
+    "level": "info"
+  },
+  "dns": {
+    "servers": [
+      {
+        "tag": "local",
+        "address": "local"
+      },
+      {
+        "tag": "remote",
+        "address": "tls://8.8.8.8"
+      }
+    ],
+    "rules": [
+      {
+        "outbound": "any",
+        "server": "local"
+      },
+      {
+        "clash_mode": "direct",
+        "server": "local"
+      },
+      {
+        "clash_mode": "global",
+        "server": "remote"
+      },
+      {
+        "rule_set": "geosite-cn",
+        "server": "local",
+        "outbound": "direct"
+      },
+      {
+        "rule_set": "geosite-geolocation-!cn",
+        "server": "remote",
+        "outbound": "Proxy"
+      }
+    ],
+    "final": "remote",
+    "strategy": "prefer_ipv4"
+  },
+  "inbounds": [
+    {
+      "type": "mixed",
+      "tag": "mixed-in",
+      "listen": "0.0.0.0",
+      "listen_port": 7890
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "更新于:02-07 04:00 -by BuLink.xyz- 以下节点不计流量",
+      "type": "vmess",
+      "server": "使用前记得更新订阅",
+      "server_port": 0,
+      "uuid": "6a3bcc08-9c77-4c02-844b-4a694c4f2fea",
+      "alter_id": 0,
+      "security": "auto"
+    },
+    {
+      "tag": "github.com/freefq%20-%20%E4%BF%84%E7%BD%97%E6%96%AF%20%201",
+      "type": "shadowsocks",
+      "server": "185.242.86.156",
+      "server_port": 54170,
+      "method": "chacha20-ietf-poly1305",
+      "password": "36ZCHeabUSfKjfQEvJ4HDV"
+    },
+    {
+      "tag": "github.com/freefq - 印度  2",
+      "type": "vmess",
+      "server": "202.78.162.5",
+      "server_port": 443,
+      "uuid": "2ff97c6d-8557-42a4-b43f-19c77c5959ea",
+      "alter_id": 0,
+      "security": "auto",
+      "transport": {
+        "type": "ws",
+        "path": "/@forwardv2ray",
+        "headers": {
+          "Host": "irsoft.sytes.net"
+        }
+      }
+    },
+    {
+      "tag": "github.com/freefq - 印度  3",
+      "type": "vmess",
+      "server": "202.78.162.5",
+      "server_port": 443,
+      "uuid": "118287d2-e968-42e1-80d0-12fa2f5d38d6",
+      "alter_id": 0,
+      "security": "auto",
+      "transport": {
+        "type": "ws",
+        "path": "/@forwardv2ray",
+        "headers": {
+          "Host": "sahand.serveminecraft.net"
+        }
+      }
+    },
+    {
+      "tag": "github.com/freefq - 美国CloudFlare公司CDN节点 4",
+      "type": "vmess",
+      "server": "www.darkroom.lol",
+      "server_port": 8080,
+      "uuid": "22826b44-5c1a-4b4b-dbaa-83a2e8bd95f0",
+      "alter_id": 0,
+      "security": "auto",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "www.darkroom.lol"
+        }
+      }
+    },
+    {
+      "tag": "github.com/freefq%20-%20%E6%B3%A2%E5%85%B0%20%205",
+      "type": "shadowsocks",
+      "server": "193.243.147.128",
+      "server_port": 40368,
+      "method": "aes-256-gcm",
+      "password": "7BcLdsO1WweoGD0X"
+    },
+    {
+      "tag": "github.com/freefq - 美国CloudFlare公司CDN节点 6",
+      "type": "vmess",
+      "server": "server31.beheshtbaneh.com",
+      "server_port": 8880,
+      "uuid": "4154143c-bbba-47a4-9f79-c2ed087cbcc9",
+      "alter_id": 0,
+      "security": "auto",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "server31.beheshtbaneh.com"
+        }
+      }
+    },
+    {
+      "tag": "github.com/freefq - 广东省移动 7",
+      "type": "vmess",
+      "server": "data-us-v1.shwjfkw.cn",
+      "server_port": 20401,
+      "uuid": "b1478e24-4916-3abe-8f17-15931012ecbe",
+      "alter_id": 0,
+      "security": "auto",
+      "transport": {
+        "type": "ws",
+        "path": "/debian",
+        "headers": {
+          "Host": "data-us-v1.shwjfkw.cn"
+        }
+      }
+    },
+    {
+      "tag": "github.com/freefq%20-%20%E5%B9%BF%E4%B8%9C%E7%9C%81%E6%B1%9F%E9%97%A8%E5%B8%82%E7%A7%BB%E5%8A%A8%208",
+      "type": "shadowsocks",
+      "server": "service.ouluyun9803.com",
+      "server_port": 20003,
+      "method": "chacha20-ietf-poly1305",
+      "password": "d6105bbd-be0d-45b2-82ad-31fd1071c1d2"
+    },
+    {
+      "tag": "github.com/freefq - 美国CloudFlare公司CDN节点 9",
+      "type": "vmess",
+      "server": "104.21.82.183",
+      "server_port": 8880,
+      "uuid": "5a7021e0-26b4-45d6-b175-fe551601ca97",
+      "alter_id": 0,
+      "security": "auto",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "server26.beheshtbaneh.com"
+        }
+      }
+    },
+    {
+      "tag": "github.com/freefq - 印度  10",
+      "type": "vmess",
+      "server": "202.78.162.5",
+      "server_port": 443,
+      "uuid": "716eded6-2201-4dbd-9d63-1638c9e8e677",
+      "alter_id": 0,
+      "security": "auto",
+      "transport": {
+        "type": "ws",
+        "path": "/@forwardv2ray",
+        "headers": {
+          "Host": "pendar.onthewifi.com"
+        }
+      }
+    },
+    {
+      "tag": "github.com/freefq%20-%20%E5%B9%BF%E4%B8%9C%E7%9C%81%E6%B1%9F%E9%97%A8%E5%B8%82%E7%A7%BB%E5%8A%A8%2011",
+      "type": "shadowsocks",
+      "server": "service.ouluyun9803.com",
+      "server_port": 26667,
+      "method": "chacha20-ietf-poly1305",
+      "password": "d6105bbd-be0d-45b2-82ad-31fd1071c1d2"
+    },
+    {
+      "tag": "github.com/freefq%20-%20%E5%B9%BF%E4%B8%9C%E7%9C%81%E6%B1%9F%E9%97%A8%E5%B8%82%E7%A7%BB%E5%8A%A8%2012",
+      "type": "shadowsocks",
+      "server": "service.ouluyun9803.com",
+      "server_port": 20005,
+      "method": "chacha20-ietf-poly1305",
+      "password": "d6105bbd-be0d-45b2-82ad-31fd1071c1d2"
+    },
+    {
+      "tag": "github.com/freefq - 美国Fastly全球Anycast节点 13",
+      "type": "vmess",
+      "server": "gov.uk",
+      "server_port": 443,
+      "uuid": "77848824-93b7-4b89-ffd0-e91afff406ce",
+      "alter_id": 0,
+      "security": "auto",
+      "transport": {
+        "type": "ws",
+        "path": "/77848824",
+        "headers": {
+          "Host": "zheshiscp.com"
+        }
+      }
+    },
+    {
+      "tag": "github.com/freefq - 美国CloudFlare节点 14",
+      "type": "vmess",
+      "server": "server32.beheshtbaneh.com",
+      "server_port": 8880,
+      "uuid": "044ba8ed-7285-472a-bc14-fb91dc6be4c9",
+      "alter_id": 0,
+      "security": "auto",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "server32.beheshtbaneh.com"
+        }
+      }
+    },
+    {
+      "tag": "%E4%BF%84%E7%BD%97%E6%96%AF+V2CROSS.COM",
+      "type": "vless",
+      "server": "s299.freessr.bid",
+      "server_port": 443,
+      "uuid": "5d02517f-63d5-3e9f-b467-1bcf4d4e25d3",
+      "tls": {
+        "enabled": true,
+        "server_name": "u695099u36cf43b9s298.wagahaha.xyz"
+      }
+    },
+    {
+      "tag": "%E5%8D%97%E9%9D%9E+V2CROSS.COM",
+      "type": "vless",
+      "server": "45.196.201.98",
+      "server_port": 443,
+      "uuid": "f75814f6-8f81-4847-b792-168c41f2dc85",
+      "tls": {
+        "enabled": true,
+        "server_name": "storage.yandex.net"
+      }
+    },
+    {
+      "tag": "%E5%8D%B0%E5%BA%A6+V2CROSS.COM",
+      "type": "shadowsocks",
+      "server": "103.111.114.71",
+      "server_port": 28061,
+      "method": "chacha20-ietf-poly1305",
+      "password": "WOir3lXBhMHDcLFPQdEZXPu37_pTQDCXfm"
+    },
+    {
+      "tag": "%E7%BE%8E%E5%9B%BD+V2CROSS.COM",
+      "type": "trojan",
+      "server": "149.104.104.58",
+      "server_port": 443,
+      "password": "S.ibYdZshHTF-ne.M+.Fznp_-hyFFnCSix",
+      "tls": {
+        "enabled": true,
+        "server_name": "149.104.104.58",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%E4%BC%8A%E6%9C%97+V2CROSS.COM",
+      "type": "vless",
+      "server": "gr1.fifapes.monster",
+      "server_port": 8882,
+      "uuid": "eab915bc-d2df-73d1-47d0-6eb240497055",
+      "tls": {
+        "enabled": true,
+        "server_name": "gr1.fifapes.monster"
+      }
+    },
+    {
+      "tag": "%E8%8D%B7%E5%85%B0+V2CROSS.COM",
+      "type": "trojan",
+      "server": "188.164.248.122",
+      "server_port": 443,
+      "password": "c206d543-023d-46cc-9d5a-1f0f2fc16323",
+      "tls": {
+        "enabled": true,
+        "server_name": "space.byu.id.yxls.eu.cc",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%E5%8D%97%E9%9D%9E+V2CROSS.COM",
+      "type": "vless",
+      "server": "154.193.55.183",
+      "server_port": 443,
+      "uuid": "11e57eeb-ffdf-4983-a9fa-ad352dea7253",
+      "tls": {
+        "enabled": true,
+        "server_name": "storage.yandex.net"
+      }
+    },
+    {
+      "tag": "%E7%BE%8E%E5%9B%BD+V2CROSS.COM",
+      "type": "vless",
+      "server": "152.53.236.22",
+      "server_port": 443,
+      "uuid": "711c018e-2692-4aa8-93f3-544d83fcd16c",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.cloudflare.com"
+      }
+    },
+    {
+      "tag": "%F0%9F%87%BA%F0%9F%87%B8US-37.19.198.244-0062",
+      "type": "shadowsocks",
+      "server": "37.19.198.244",
+      "server_port": 443,
+      "method": "aes-128-gcm",
+      "password": "shadowsocks"
+    },
+    {
+      "tag": "%F0%9F%87%A8%F0%9F%87%A6CA-137.184.174.93-0056",
+      "type": "shadowsocks",
+      "server": "137.184.174.93",
+      "server_port": 8080,
+      "method": "rc4-md5",
+      "password": "14fFPrbezE3HDZzsMOr6"
+    },
+    {
+      "tag": "%F0%9F%87%BA%F0%9F%87%B8US-37.19.198.243-0057",
+      "type": "shadowsocks",
+      "server": "37.19.198.243",
+      "server_port": 443,
+      "method": "aes-128-gcm",
+      "password": "shadowsocks"
+    },
+    {
+      "tag": "%F0%9F%87%BA%F0%9F%87%B8US-108.181.0.177-0064",
+      "type": "shadowsocks",
+      "server": "108.181.0.177",
+      "server_port": 8388,
+      "method": "chacha20-ietf-poly1305",
+      "password": "G5p6ww4o67HB"
+    },
+    {
+      "tag": "%F0%9F%87%A8%F0%9F%87%A6CA-108.181.118.10-0065",
+      "type": "shadowsocks",
+      "server": "108.181.118.10",
+      "server_port": 8388,
+      "method": "chacha20-ietf-poly1305",
+      "password": "G5p6ww4o67HB"
+    },
+    {
+      "tag": "%F0%9F%87%BA%F0%9F%87%B8US-37.19.198.236-0061",
+      "type": "shadowsocks",
+      "server": "37.19.198.236",
+      "server_port": 443,
+      "method": "aes-128-gcm",
+      "password": "shadowsocks"
+    },
+    {
+      "tag": "%F0%9F%87%BA%F0%9F%87%B8US-138.199.42.68-0060",
+      "type": "shadowsocks",
+      "server": "138.199.42.68",
+      "server_port": 8080,
+      "method": "rc4-md5",
+      "password": "14fFPrbezE3HDZzsMOr6"
+    },
+    {
+      "tag": "%F0%9F%87%BA%F0%9F%87%B8US-37.19.198.160-0063",
+      "type": "shadowsocks",
+      "server": "37.19.198.160",
+      "server_port": 443,
+      "method": "aes-128-gcm",
+      "password": "shadowsocks"
+    },
+    {
+      "tag": "%F0%9F%87%AC%F0%9F%87%A7GB-82.38.31.174-0088",
+      "type": "shadowsocks",
+      "server": "82.38.31.174",
+      "server_port": 443,
+      "method": "chacha20-ietf-poly1305",
+      "password": "oZIoA69Q8yhcQV8ka3Pa3A"
+    },
+    {
+      "tag": "%F0%9F%87%BA%F0%9F%87%B8US-54.167.54.100-0058",
+      "type": "shadowsocks",
+      "server": "54.167.54.100",
+      "server_port": 443,
+      "method": "aes-256-cfb",
+      "password": "amazonskr05"
+    },
+    {
+      "tag": "%F0%9F%87%B3%F0%9F%87%B1NL-193.29.139.151-0069",
+      "type": "shadowsocks",
+      "server": "193.29.139.151",
+      "server_port": 8080,
+      "method": "chacha20-ietf-poly1305",
+      "password": "oZIoA69Q8yhcQV8ka3Pa3A"
+    },
+    {
+      "tag": "%F0%9F%87%AC%F0%9F%87%A7GB-82.38.31.202-0087",
+      "type": "shadowsocks",
+      "server": "82.38.31.202",
+      "server_port": 8080,
+      "method": "chacha20-ietf-poly1305",
+      "password": "k1dBOmOB4oqi7Ump37a1bQ"
+    },
+    {
+      "tag": "%F0%9F%87%AC%F0%9F%87%A7GB-82.38.31.155-0072",
+      "type": "shadowsocks",
+      "server": "82.38.31.155",
+      "server_port": 8080,
+      "method": "chacha20-ietf-poly1305",
+      "password": "oZIoA69Q8yhcQV8ka3Pa3A"
+    },
+    {
+      "tag": "%F0%9F%87%AC%F0%9F%87%A7GB-82.38.31.214-0073",
+      "type": "shadowsocks",
+      "server": "82.38.31.214",
+      "server_port": 8080,
+      "method": "chacha20-ietf-poly1305",
+      "password": "k1dBOmOB4oqi7Ump37a1bQ"
+    },
+    {
+      "tag": "%F0%9F%87%AB%F0%9F%87%B7FR-13.38.66.171-0101",
+      "type": "trojan",
+      "server": "musical-shrew.rooster465.autos",
+      "server_port": 443,
+      "password": "JT80563429",
+      "tls": {
+        "enabled": true,
+        "server_name": "musical-shrew.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%AC%F0%9F%87%A7GB-82.38.31.34-0070",
+      "type": "shadowsocks",
+      "server": "82.38.31.34",
+      "server_port": 8080,
+      "method": "chacha20-ietf-poly1305",
+      "password": "oZIoA69Q8yhcQV8ka3Pa3A"
+    },
+    {
+      "tag": "%F0%9F%87%AC%F0%9F%87%A7GB-82.38.31.174-0083",
+      "type": "shadowsocks",
+      "server": "82.38.31.174",
+      "server_port": 8080,
+      "method": "chacha20-ietf-poly1305",
+      "password": "oZIoA69Q8yhcQV8ka3Pa3A"
+    },
+    {
+      "tag": "%F0%9F%87%B3%F0%9F%87%B1NL-193.29.139.204-0091",
+      "type": "shadowsocks",
+      "server": "193.29.139.204",
+      "server_port": 8080,
+      "method": "chacha20-ietf-poly1305",
+      "password": "oZIoA69Q8yhcQV8ka3Pa3A"
+    },
+    {
+      "tag": "%F0%9F%87%BA%F0%9F%87%B8US-163.245.196.68-0105",
+      "type": "trojan",
+      "server": "163.245.196.68",
+      "server_port": 49361,
+      "password": "0ebb269c9f2d4e8e46b0cd4105a55134",
+      "tls": {
+        "enabled": true,
+        "server_name": "163.245.196.68.sslip.io",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%B3%F0%9F%87%B1NL-193.29.139.235-0077",
+      "type": "shadowsocks",
+      "server": "193.29.139.235",
+      "server_port": 8080,
+      "method": "chacha20-ietf-poly1305",
+      "password": "oZIoA69Q8yhcQV8ka3Pa3A"
+    },
+    {
+      "tag": "%F0%9F%87%AB%F0%9F%87%B7FR-15.188.75.92-0097",
+      "type": "trojan",
+      "server": "moral-dolphin.rooster465.autos",
+      "server_port": 443,
+      "password": "UZ15382649",
+      "tls": {
+        "enabled": true,
+        "server_name": "moral-dolphin.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%BA%F0%9F%87%B8US-173.244.56.6-0103",
+      "type": "shadowsocks",
+      "server": "173.244.56.6",
+      "server_port": 443,
+      "method": "aes-128-gcm",
+      "password": "shadowsocks"
+    },
+    {
+      "tag": "%F0%9F%87%AC%F0%9F%87%A7GB-146.70.61.37-0078",
+      "type": "shadowsocks",
+      "server": "146.70.61.37",
+      "server_port": 8080,
+      "method": "rc4-md5",
+      "password": "14fFPrbezE3HDZzsMOr6"
+    },
+    {
+      "tag": "%F0%9F%87%AB%F0%9F%87%B7FR-35.181.168.168-0094",
+      "type": "trojan",
+      "server": "nearby-cod.rooster465.autos",
+      "server_port": 443,
+      "password": "WG39087154",
+      "tls": {
+        "enabled": true,
+        "server_name": "nearby-cod.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%BA%F0%9F%87%B8US-173.244.56.9-0106",
+      "type": "shadowsocks",
+      "server": "173.244.56.9",
+      "server_port": 443,
+      "method": "aes-128-gcm",
+      "password": "shadowsocks"
+    },
+    {
+      "tag": "%F0%9F%87%AC%F0%9F%87%A7GB-82.38.31.210-0089",
+      "type": "shadowsocks",
+      "server": "82.38.31.210",
+      "server_port": 8080,
+      "method": "chacha20-ietf-poly1305",
+      "password": "k1dBOmOB4oqi7Ump37a1bQ"
+    },
+    {
+      "tag": "%F0%9F%87%AC%F0%9F%87%A7GB-82.38.31.57-0084",
+      "type": "shadowsocks",
+      "server": "82.38.31.57",
+      "server_port": 443,
+      "method": "chacha20-ietf-poly1305",
+      "password": "oZIoA69Q8yhcQV8ka3Pa3A"
+    },
+    {
+      "tag": "%F0%9F%87%A8%F0%9F%87%A6CA-149.22.95.183-0102",
+      "type": "shadowsocks",
+      "server": "149.22.95.183",
+      "server_port": 443,
+      "method": "aes-128-gcm",
+      "password": "shadowsocks"
+    },
+    {
+      "tag": "%F0%9F%87%AC%F0%9F%87%A7GB-82.38.31.179-0066",
+      "type": "shadowsocks",
+      "server": "82.38.31.179",
+      "server_port": 8080,
+      "method": "chacha20-ietf-poly1305",
+      "password": "k1dBOmOB4oqi7Ump37a1bQ"
+    },
+    {
+      "tag": "%F0%9F%87%AB%F0%9F%87%B7FR-13.39.161.149-0099",
+      "type": "trojan",
+      "server": "humane-bird.rooster465.autos",
+      "server_port": 443,
+      "password": "IQ68037294",
+      "tls": {
+        "enabled": true,
+        "server_name": "humane-bird.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%AC%F0%9F%87%A7GB-82.38.31.199-0219",
+      "type": "shadowsocks",
+      "server": "82.38.31.199",
+      "server_port": 8080,
+      "method": "chacha20-ietf-poly1305",
+      "password": "k1dBOmOB4oqi7Ump37a1bQ"
+    },
+    {
+      "tag": "%F0%9F%87%B3%F0%9F%87%B1NL-109.201.152.181-0100",
+      "type": "shadowsocks",
+      "server": "109.201.152.181",
+      "server_port": 443,
+      "method": "aes-128-cfb",
+      "password": "shadowsocks"
+    },
+    {
+      "tag": "%F0%9F%87%AC%F0%9F%87%A7GB-82.38.31.189-0074",
+      "type": "shadowsocks",
+      "server": "82.38.31.189",
+      "server_port": 8080,
+      "method": "chacha20-ietf-poly1305",
+      "password": "k1dBOmOB4oqi7Ump37a1bQ"
+    },
+    {
+      "tag": "%F0%9F%87%B3%F0%9F%87%B1NL-85.234.65.26-0111",
+      "type": "trojan",
+      "server": "pro-crane.rooster465.autos",
+      "server_port": 443,
+      "password": "PD07395842",
+      "tls": {
+        "enabled": true,
+        "server_name": "pro-crane.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%AC%F0%9F%87%A7GB-82.38.31.46-0082",
+      "type": "shadowsocks",
+      "server": "82.38.31.46",
+      "server_port": 8080,
+      "method": "chacha20-ietf-poly1305",
+      "password": "oZIoA69Q8yhcQV8ka3Pa3A"
+    },
+    {
+      "tag": "%F0%9F%87%AC%F0%9F%87%A7GB-82.38.31.149-0075",
+      "type": "shadowsocks",
+      "server": "82.38.31.149",
+      "server_port": 8080,
+      "method": "chacha20-ietf-poly1305",
+      "password": "oZIoA69Q8yhcQV8ka3Pa3A"
+    },
+    {
+      "tag": "%F0%9F%87%AB%F0%9F%87%B7FR-13.38.35.46-0098",
+      "type": "trojan",
+      "server": "lucky-marmot.rooster465.autos",
+      "server_port": 443,
+      "password": "ON38567014",
+      "tls": {
+        "enabled": true,
+        "server_name": "lucky-marmot.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%B5%F0%9F%87%B1PL-62.112.222.12-0108",
+      "type": "trojan",
+      "server": "ready-lion.rooster465.autos",
+      "server_port": 443,
+      "password": "NQ26071394",
+      "tls": {
+        "enabled": true,
+        "server_name": "ready-lion.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%AC%F0%9F%87%A7GB-82.38.31.186-0093",
+      "type": "shadowsocks",
+      "server": "82.38.31.186",
+      "server_port": 8080,
+      "method": "chacha20-ietf-poly1305",
+      "password": "k1dBOmOB4oqi7Ump37a1bQ"
+    },
+    {
+      "tag": "%F0%9F%87%B5%F0%9F%87%B1PL-62.112.222.236-0112",
+      "type": "trojan",
+      "server": "eternal-swift.rooster465.autos",
+      "server_port": 443,
+      "password": "IQ68037294",
+      "tls": {
+        "enabled": true,
+        "server_name": "eternal-swift.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%AC%F0%9F%87%A7GB-82.38.31.194-0230",
+      "type": "shadowsocks",
+      "server": "82.38.31.194",
+      "server_port": 8080,
+      "method": "chacha20-ietf-poly1305",
+      "password": "k1dBOmOB4oqi7Ump37a1bQ"
+    },
+    {
+      "tag": "%F0%9F%87%B5%F0%9F%87%B1PL-62.112.222.109-0122",
+      "type": "trojan",
+      "server": "strong-haddock.rooster465.autos",
+      "server_port": 443,
+      "password": "ON38567014",
+      "tls": {
+        "enabled": true,
+        "server_name": "strong-haddock.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%B5%F0%9F%87%B1PL-62.112.222.127-0109",
+      "type": "trojan",
+      "server": "polite-martin.rooster465.autos",
+      "server_port": 443,
+      "password": "IQ68037294",
+      "tls": {
+        "enabled": true,
+        "server_name": "polite-martin.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%B5%F0%9F%87%B1PL-62.112.222.57-0115",
+      "type": "trojan",
+      "server": "fast-ghost.rooster465.autos",
+      "server_port": 443,
+      "password": "PD07395842",
+      "tls": {
+        "enabled": true,
+        "server_name": "fast-ghost.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%B3%F0%9F%87%B1NL-108.181.126.122-0123",
+      "type": "shadowsocks",
+      "server": "108.181.126.122",
+      "server_port": 8388,
+      "method": "chacha20-ietf-poly1305",
+      "password": "CJmTCCx7Ltud"
+    },
+    {
+      "tag": "%F0%9F%87%B5%F0%9F%87%B1PL-62.112.222.212-0117",
+      "type": "trojan",
+      "server": "more-trout.rooster465.autos",
+      "server_port": 443,
+      "password": "KV63147582",
+      "tls": {
+        "enabled": true,
+        "server_name": "more-trout.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%B5%F0%9F%87%B1PL-62.112.222.69-0116",
+      "type": "trojan",
+      "server": "ideal-robin.rooster465.autos",
+      "server_port": 443,
+      "password": "OD90375861",
+      "tls": {
+        "enabled": true,
+        "server_name": "ideal-robin.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%B5%F0%9F%87%B1PL-62.112.222.103-0113",
+      "type": "trojan",
+      "server": "smiling-ray.rooster465.autos",
+      "server_port": 443,
+      "password": "ON38567014",
+      "tls": {
+        "enabled": true,
+        "server_name": "smiling-ray.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%AF%F0%9F%87%B5JP-95.85.94.148-0134",
+      "type": "trojan",
+      "server": "next-ringtail.rooster465.autos",
+      "server_port": 443,
+      "password": "IQ68037294",
+      "tls": {
+        "enabled": true,
+        "server_name": "next-ringtail.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%B5%F0%9F%87%B1PL-62.112.222.26-0124",
+      "type": "trojan",
+      "server": "upright-hamster.rooster465.autos",
+      "server_port": 443,
+      "password": "PI36027154",
+      "tls": {
+        "enabled": true,
+        "server_name": "upright-hamster.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%A9%F0%9F%87%AADE-209.46.102.22-0127",
+      "type": "shadowsocks",
+      "server": "209.46.102.22",
+      "server_port": 8388,
+      "method": "chacha20-ietf-poly1305",
+      "password": "1hhrqrokj3ag"
+    },
+    {
+      "tag": "%F0%9F%87%B5%F0%9F%87%B1PL-62.112.222.151-0120",
+      "type": "trojan",
+      "server": "emerging-weevil.rooster465.autos",
+      "server_port": 443,
+      "password": "CF68213490",
+      "tls": {
+        "enabled": true,
+        "server_name": "emerging-weevil.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%B5%F0%9F%87%B1PL-62.112.222.26-0121",
+      "type": "trojan",
+      "server": "62.112.222.26",
+      "server_port": 443,
+      "password": "PI36027154",
+      "tls": {
+        "enabled": true,
+        "server_name": "upright-hamster.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%AF%F0%9F%87%B5JP-31.223.184.125-0158",
+      "type": "trojan",
+      "server": "moral-buzzard.rooster465.autos",
+      "server_port": 443,
+      "password": "IQ68037294",
+      "tls": {
+        "enabled": true,
+        "server_name": "moral-buzzard.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%AC%F0%9F%87%A7GB-82.38.31.187-0081",
+      "type": "shadowsocks",
+      "server": "82.38.31.187",
+      "server_port": 8080,
+      "method": "chacha20-ietf-poly1305",
+      "password": "k1dBOmOB4oqi7Ump37a1bQ"
+    },
+    {
+      "tag": "%F0%9F%87%B5%F0%9F%87%B1PL-62.112.222.177-0118",
+      "type": "trojan",
+      "server": "kind-unicorn.rooster465.autos",
+      "server_port": 443,
+      "password": "NQ26071394",
+      "tls": {
+        "enabled": true,
+        "server_name": "kind-unicorn.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%B5%F0%9F%87%B1PL-62.112.222.46-0119",
+      "type": "trojan",
+      "server": "legible-possum.rooster465.autos",
+      "server_port": 443,
+      "password": "KV63147582",
+      "tls": {
+        "enabled": true,
+        "server_name": "legible-possum.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%AF%F0%9F%87%B5JP-95.85.94.112-0132",
+      "type": "trojan",
+      "server": "sweeping-parakeet.rooster465.autos",
+      "server_port": 443,
+      "password": "IQ68037294",
+      "tls": {
+        "enabled": true,
+        "server_name": "sweeping-parakeet.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%AF%F0%9F%87%B5JP-95.85.94.165-0139",
+      "type": "trojan",
+      "server": "moved-osprey.rooster465.autos",
+      "server_port": 443,
+      "password": "IQ68037294",
+      "tls": {
+        "enabled": true,
+        "server_name": "moved-osprey.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%AF%F0%9F%87%B5JP-95.85.94.137-0135",
+      "type": "trojan",
+      "server": "inspired-hound.rooster465.autos",
+      "server_port": 443,
+      "password": "JT80563429",
+      "tls": {
+        "enabled": true,
+        "server_name": "inspired-hound.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%AC%F0%9F%87%A7GB-82.38.31.15-0076",
+      "type": "shadowsocks",
+      "server": "82.38.31.15",
+      "server_port": 443,
+      "method": "chacha20-ietf-poly1305",
+      "password": "oZIoA69Q8yhcQV8ka3Pa3A"
+    },
+    {
+      "tag": "%F0%9F%87%AB%F0%9F%87%B7FR-13.37.222.178-0096",
+      "type": "trojan",
+      "server": "correct-pony.rooster465.autos",
+      "server_port": 443,
+      "password": "IQ68037294",
+      "tls": {
+        "enabled": true,
+        "server_name": "correct-pony.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%A6%F0%9F%87%BAAU-82.117.225.212-0138",
+      "type": "trojan",
+      "server": "true-pony.rooster465.autos",
+      "server_port": 443,
+      "password": "PD07395842",
+      "tls": {
+        "enabled": true,
+        "server_name": "true-pony.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%AB%F0%9F%87%B7FR-13.39.89.72-0095",
+      "type": "trojan",
+      "server": "definite-giraffe.rooster465.autos",
+      "server_port": 443,
+      "password": "IQ68037294",
+      "tls": {
+        "enabled": true,
+        "server_name": "definite-giraffe.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%A6%F0%9F%87%BAAU-82.117.225.216-0164",
+      "type": "trojan",
+      "server": "concise-buck.rooster465.autos",
+      "server_port": 443,
+      "password": "XG59623478",
+      "tls": {
+        "enabled": true,
+        "server_name": "concise-buck.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%A6%F0%9F%87%BAAU-82.117.225.216-0141",
+      "type": "trojan",
+      "server": "82.117.225.216",
+      "server_port": 443,
+      "password": "XG59623478",
+      "tls": {
+        "enabled": true,
+        "server_name": "concise-buck.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%A6%F0%9F%87%BAAU-82.117.225.56-0140",
+      "type": "trojan",
+      "server": "82.117.225.56",
+      "server_port": 443,
+      "password": "XG59623478",
+      "tls": {
+        "enabled": true,
+        "server_name": "stirring-dane.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%B8%F0%9F%87%ACSG-81.28.13.68-0154",
+      "type": "trojan",
+      "server": "pet-albacore.rooster465.autos",
+      "server_port": 443,
+      "password": "IQ68037294",
+      "tls": {
+        "enabled": true,
+        "server_name": "pet-albacore.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%B8%F0%9F%87%ACSG-81.28.13.126-0156",
+      "type": "trojan",
+      "server": "resolved-gelding.rooster465.autos",
+      "server_port": 443,
+      "password": "FC60532879",
+      "tls": {
+        "enabled": true,
+        "server_name": "resolved-gelding.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%A6%F0%9F%87%BAAU-82.117.225.246-0161",
+      "type": "trojan",
+      "server": "welcome-labrador.rooster465.autos",
+      "server_port": 443,
+      "password": "FC60532879",
+      "tls": {
+        "enabled": true,
+        "server_name": "welcome-labrador.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%B0%F0%9F%87%B7KR-82.117.226.224-0188",
+      "type": "trojan",
+      "server": "exotic-chicken.rooster465.autos",
+      "server_port": 443,
+      "password": "FC60532879",
+      "tls": {
+        "enabled": true,
+        "server_name": "exotic-chicken.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%A6%F0%9F%87%BAAU-82.117.225.123-0162",
+      "type": "trojan",
+      "server": "big-bonefish.rooster465.autos",
+      "server_port": 443,
+      "password": "PD07395842",
+      "tls": {
+        "enabled": true,
+        "server_name": "big-bonefish.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%B5%F0%9F%87%B1PL-62.112.222.145-0110",
+      "type": "trojan",
+      "server": "patient-gannet.rooster465.autos",
+      "server_port": 443,
+      "password": "IQ68037294",
+      "tls": {
+        "enabled": true,
+        "server_name": "patient-gannet.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%B0%F0%9F%87%B7KR-109.61.127.205-0167",
+      "type": "trojan",
+      "server": "select-marmoset.rooster465.autos",
+      "server_port": 443,
+      "password": "IQ68037294",
+      "tls": {
+        "enabled": true,
+        "server_name": "select-marmoset.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%B3%F0%9F%87%B1NL-89.39.70.222-0114",
+      "type": "trojan",
+      "server": "casual-bullfrog.rooster465.autos",
+      "server_port": 443,
+      "password": "IQ68037294",
+      "tls": {
+        "enabled": true,
+        "server_name": "casual-bullfrog.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%B3%F0%9F%87%B1NL-79.133.126.108-0130",
+      "type": "trojan",
+      "server": "cheerful-swan.rooster465.autos",
+      "server_port": 443,
+      "password": "IQ68037294",
+      "tls": {
+        "enabled": true,
+        "server_name": "cheerful-swan.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%B0%F0%9F%87%B7KR-82.117.226.104-0177",
+      "type": "trojan",
+      "server": "robust-toucan.rooster465.autos",
+      "server_port": 443,
+      "password": "IQ68037294",
+      "tls": {
+        "enabled": true,
+        "server_name": "robust-toucan.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%B0%F0%9F%87%B7KR-109.61.127.145-0175",
+      "type": "trojan",
+      "server": "outgoing-ladybird.rooster465.autos",
+      "server_port": 443,
+      "password": "FC60532879",
+      "tls": {
+        "enabled": true,
+        "server_name": "outgoing-ladybird.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%AD%F0%9F%87%B0HK-194.99.79.214-0165",
+      "type": "trojan",
+      "server": "growing-oyster.rooster465.autos",
+      "server_port": 443,
+      "password": "XG59623478",
+      "tls": {
+        "enabled": true,
+        "server_name": "growing-oyster.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%B0%F0%9F%87%B7KR-82.117.226.218-0176",
+      "type": "trojan",
+      "server": "whole-perch.rooster465.autos",
+      "server_port": 443,
+      "password": "IQ68037294",
+      "tls": {
+        "enabled": true,
+        "server_name": "whole-perch.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%B8%F0%9F%87%ACSG-91.243.81.192-0159",
+      "type": "trojan",
+      "server": "sterling-fowl.rooster465.autos",
+      "server_port": 443,
+      "password": "IQ68037294",
+      "tls": {
+        "enabled": true,
+        "server_name": "sterling-fowl.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%B0%F0%9F%87%B7KR-109.61.127.24-0168",
+      "type": "trojan",
+      "server": "artistic-pigeon.rooster465.autos",
+      "server_port": 443,
+      "password": "IQ68037294",
+      "tls": {
+        "enabled": true,
+        "server_name": "artistic-pigeon.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%B8%F0%9F%87%ACSG-45.135.228.28-0155",
+      "type": "trojan",
+      "server": "pleased-sawfly.rooster465.autos",
+      "server_port": 443,
+      "password": "IQ68037294",
+      "tls": {
+        "enabled": true,
+        "server_name": "pleased-sawfly.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%B8%F0%9F%87%ACSG-91.243.81.129-0163",
+      "type": "trojan",
+      "server": "casual-stallion.rooster465.autos",
+      "server_port": 443,
+      "password": "IQ68037294",
+      "tls": {
+        "enabled": true,
+        "server_name": "casual-stallion.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%B8%F0%9F%87%ACSG-81.28.13.159-0145",
+      "type": "trojan",
+      "server": "giving-bird.rooster465.autos",
+      "server_port": 443,
+      "password": "IQ68037294",
+      "tls": {
+        "enabled": true,
+        "server_name": "giving-bird.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%B8%F0%9F%87%ACSG-91.243.81.26-0142",
+      "type": "trojan",
+      "server": "full-mackerel.rooster465.autos",
+      "server_port": 443,
+      "password": "IQ68037294",
+      "tls": {
+        "enabled": true,
+        "server_name": "full-mackerel.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%B8%F0%9F%87%ACSG-45.135.228.63-0152",
+      "type": "trojan",
+      "server": "fair-reptile.rooster465.autos",
+      "server_port": 443,
+      "password": "IQ68037294",
+      "tls": {
+        "enabled": true,
+        "server_name": "fair-reptile.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%B8%F0%9F%87%ACSG-45.135.228.9-0150",
+      "type": "trojan",
+      "server": "actual-chicken.rooster465.autos",
+      "server_port": 443,
+      "password": "FC60532879",
+      "tls": {
+        "enabled": true,
+        "server_name": "actual-chicken.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%B8%F0%9F%87%ACSG-45.135.228.59-0144",
+      "type": "trojan",
+      "server": "true-alpaca.rooster465.autos",
+      "server_port": 443,
+      "password": "FC60532879",
+      "tls": {
+        "enabled": true,
+        "server_name": "true-alpaca.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%B8%F0%9F%87%ACSG-45.135.228.211-0153",
+      "type": "trojan",
+      "server": "endless-kiwi.rooster465.autos",
+      "server_port": 443,
+      "password": "IQ68037294",
+      "tls": {
+        "enabled": true,
+        "server_name": "endless-kiwi.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%B8%F0%9F%87%ACSG-91.243.81.178-0157",
+      "type": "trojan",
+      "server": "brave-cattle.rooster465.autos",
+      "server_port": 443,
+      "password": "IQ68037294",
+      "tls": {
+        "enabled": true,
+        "server_name": "brave-cattle.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%B0%F0%9F%87%B7KR-82.117.226.40-0174",
+      "type": "trojan",
+      "server": "classic-pug.rooster465.autos",
+      "server_port": 443,
+      "password": "FC60532879",
+      "tls": {
+        "enabled": true,
+        "server_name": "classic-pug.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%B8%F0%9F%87%ACSG-45.135.228.220-0151",
+      "type": "trojan",
+      "server": "neat-duck.rooster465.autos",
+      "server_port": 443,
+      "password": "IQ68037294",
+      "tls": {
+        "enabled": true,
+        "server_name": "neat-duck.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%B0%F0%9F%87%B7KR-82.117.226.157-0472",
+      "type": "trojan",
+      "server": "fair-ram.rooster465.autos",
+      "server_port": 443,
+      "password": "JT80563429",
+      "tls": {
+        "enabled": true,
+        "server_name": "fair-ram.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%B8%F0%9F%87%ACSG-45.135.228.169-0147",
+      "type": "trojan",
+      "server": "fun-salmon.rooster465.autos",
+      "server_port": 443,
+      "password": "IQ68037294",
+      "tls": {
+        "enabled": true,
+        "server_name": "fun-salmon.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%B8%F0%9F%87%ACSG-45.135.228.100-0146",
+      "type": "trojan",
+      "server": "meet-doe.rooster465.autos",
+      "server_port": 443,
+      "password": "IQ68037294",
+      "tls": {
+        "enabled": true,
+        "server_name": "meet-doe.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%B0%F0%9F%87%B7KR-82.117.226.76-0389",
+      "type": "trojan",
+      "server": "touching-pigeon.rooster465.autos",
+      "server_port": 443,
+      "password": "JT80563429",
+      "tls": {
+        "enabled": true,
+        "server_name": "touching-pigeon.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%AC%F0%9F%87%A7GB-82.38.31.49-0086",
+      "type": "shadowsocks",
+      "server": "82.38.31.49",
+      "server_port": 8080,
+      "method": "chacha20-ietf-poly1305",
+      "password": "oZIoA69Q8yhcQV8ka3Pa3A"
+    },
+    {
+      "tag": "%F0%9F%87%AD%F0%9F%87%B0HK-185.14.47.36-0171",
+      "type": "trojan",
+      "server": "pretty-mollusk.rooster465.autos",
+      "server_port": 443,
+      "password": "NQ26071394",
+      "tls": {
+        "enabled": true,
+        "server_name": "pretty-mollusk.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%AC%F0%9F%87%A7GB-82.38.31.48-0092",
+      "type": "shadowsocks",
+      "server": "82.38.31.48",
+      "server_port": 8080,
+      "method": "chacha20-ietf-poly1305",
+      "password": "oZIoA69Q8yhcQV8ka3Pa3A"
+    },
+    {
+      "tag": "%F0%9F%87%B3%F0%9F%87%B1NL-108.181.58.239-0128",
+      "type": "shadowsocks",
+      "server": "108.181.58.239",
+      "server_port": 8388,
+      "method": "chacha20-ietf-poly1305",
+      "password": "CJmTCCx7Ltud"
+    },
+    {
+      "tag": "%F0%9F%87%B8%F0%9F%87%ACSG-81.28.13.48-0148",
+      "type": "trojan",
+      "server": "glowing-deer.rooster465.autos",
+      "server_port": 443,
+      "password": "IQ68037294",
+      "tls": {
+        "enabled": true,
+        "server_name": "glowing-deer.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%B3%F0%9F%87%B1NL-193.169.239.76-0125",
+      "type": "trojan",
+      "server": "renewed-chigger.rooster465.autos",
+      "server_port": 443,
+      "password": "XG59623478",
+      "tls": {
+        "enabled": true,
+        "server_name": "renewed-chigger.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%B8%F0%9F%87%ACSG-81.28.13.225-0149",
+      "type": "trojan",
+      "server": "open-eel.rooster465.autos",
+      "server_port": 443,
+      "password": "IQ68037294",
+      "tls": {
+        "enabled": true,
+        "server_name": "open-eel.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%B3%F0%9F%87%B1NL-89.39.70.205-0133",
+      "type": "trojan",
+      "server": "whole-woodcock.rooster465.autos",
+      "server_port": 443,
+      "password": "IQ68037294",
+      "tls": {
+        "enabled": true,
+        "server_name": "whole-woodcock.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%B3%F0%9F%87%B1NL-79.133.126.190-0137",
+      "type": "trojan",
+      "server": "79.133.126.190",
+      "server_port": 443,
+      "password": "NQ26071394",
+      "tls": {
+        "enabled": true,
+        "server_name": "renewed-phoenix.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%AF%F0%9F%87%B5JP-149.22.87.240-0186",
+      "type": "shadowsocks",
+      "server": "149.22.87.240",
+      "server_port": 443,
+      "method": "aes-128-gcm",
+      "password": "shadowsocks"
+    },
+    {
+      "tag": "%F0%9F%87%AF%F0%9F%87%B5JP-95.85.94.90-0183",
+      "type": "trojan",
+      "server": "square-anchovy.rooster465.autos",
+      "server_port": 443,
+      "password": "IQ68037294",
+      "tls": {
+        "enabled": true,
+        "server_name": "square-anchovy.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%B0%F0%9F%87%B7KR-82.117.226.225-0184",
+      "type": "trojan",
+      "server": "adjusted-labrador.rooster465.autos",
+      "server_port": 443,
+      "password": "IQ68037294",
+      "tls": {
+        "enabled": true,
+        "server_name": "adjusted-labrador.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%AF%F0%9F%87%B5JP-149.22.87.241-0185",
+      "type": "shadowsocks",
+      "server": "149.22.87.241",
+      "server_port": 443,
+      "method": "aes-128-gcm",
+      "password": "shadowsocks"
+    },
+    {
+      "tag": "%F0%9F%87%AF%F0%9F%87%B5JP-149.22.87.204-0187",
+      "type": "shadowsocks",
+      "server": "149.22.87.204",
+      "server_port": 443,
+      "method": "aes-128-gcm",
+      "password": "shadowsocks"
+    },
+    {
+      "tag": "%F0%9F%87%AC%F0%9F%87%A7GB-82.38.31.16-0079",
+      "type": "shadowsocks",
+      "server": "82.38.31.16",
+      "server_port": 8080,
+      "method": "chacha20-ietf-poly1305",
+      "password": "oZIoA69Q8yhcQV8ka3Pa3A"
+    },
+    {
+      "tag": "%F0%9F%87%AC%F0%9F%87%A7GB-94.156.250.148-0205",
+      "type": "shadowsocks",
+      "server": "94.156.250.148",
+      "server_port": 7001,
+      "method": "aes-256-gcm",
+      "password": "RexnBgU7EV5ADxG"
+    },
+    {
+      "tag": "%F0%9F%87%AF%F0%9F%87%B5JP-31.223.184.153-0173",
+      "type": "trojan",
+      "server": "rested-pheasant.rooster465.autos",
+      "server_port": 443,
+      "password": "FC60532879",
+      "tls": {
+        "enabled": true,
+        "server_name": "rested-pheasant.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%B3%F0%9F%87%B1NL-89.39.70.49-0126",
+      "type": "trojan",
+      "server": "eager-louse.rooster465.autos",
+      "server_port": 443,
+      "password": "IQ68037294",
+      "tls": {
+        "enabled": true,
+        "server_name": "eager-louse.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "🇲🇩MD-94.131.108.36-0189",
+      "type": "vmess",
+      "server": "94.131.108.36",
+      "server_port": 443,
+      "uuid": "9855f1f0-a800-40d4-8b38-c7d3eb79302d",
+      "alter_id": 0,
+      "security": "auto",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {}
+      }
+    },
+    {
+      "tag": "%F0%9F%87%B3%F0%9F%87%B1NL-89.39.70.233-0129",
+      "type": "trojan",
+      "server": "89.39.70.233",
+      "server_port": 443,
+      "password": "KV63147582",
+      "tls": {
+        "enabled": true,
+        "server_name": "game-firefly.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%B7%F0%9F%87%BARU-157.22.240.141-0180",
+      "type": "shadowsocks",
+      "server": "157.22.240.141",
+      "server_port": 57925,
+      "method": "chacha20-ietf-poly1305",
+      "password": "FXpDf7WV6lfD6n9hpz7HF2"
+    },
+    {
+      "tag": "%F0%9F%87%B0%F0%9F%87%B7KR-82.117.226.221-0172",
+      "type": "trojan",
+      "server": "accurate-drake.rooster465.autos",
+      "server_port": 443,
+      "password": "IQ68037294",
+      "tls": {
+        "enabled": true,
+        "server_name": "accurate-drake.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%AD%F0%9F%87%B0HK-185.14.47.195-0196",
+      "type": "trojan",
+      "server": "185.14.47.195",
+      "server_port": 443,
+      "password": "HW85960347",
+      "tls": {
+        "enabled": true,
+        "server_name": "eminent-lamb.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%B3%F0%9F%87%B1NL-89.39.70.233-0131",
+      "type": "trojan",
+      "server": "game-firefly.rooster465.autos",
+      "server_port": 443,
+      "password": "KV63147582",
+      "tls": {
+        "enabled": true,
+        "server_name": "game-firefly.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%AF%F0%9F%87%B5JP-31.223.184.249-0166",
+      "type": "trojan",
+      "server": "wise-longhorn.rooster465.autos",
+      "server_port": 443,
+      "password": "FC60532879",
+      "tls": {
+        "enabled": true,
+        "server_name": "wise-longhorn.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%AC%F0%9F%87%A7GB-82.38.31.35-0179",
+      "type": "shadowsocks",
+      "server": "82.38.31.35",
+      "server_port": 443,
+      "method": "chacha20-ietf-poly1305",
+      "password": "oZIoA69Q8yhcQV8ka3Pa3A"
+    },
+    {
+      "tag": "%F0%9F%87%AF%F0%9F%87%B5JP-95.85.94.17-0195",
+      "type": "trojan",
+      "server": "major-duckling.rooster465.autos",
+      "server_port": 443,
+      "password": "IQ68037294",
+      "tls": {
+        "enabled": true,
+        "server_name": "major-duckling.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%B8%F0%9F%87%ACSG-81.28.13.103-0160",
+      "type": "trojan",
+      "server": "faithful-panther.rooster465.autos",
+      "server_port": 443,
+      "password": "FC60532879",
+      "tls": {
+        "enabled": true,
+        "server_name": "faithful-panther.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%B8%F0%9F%87%ACSG-81.28.13.9-0143",
+      "type": "trojan",
+      "server": "prepared-turkey.rooster465.autos",
+      "server_port": 443,
+      "password": "IQ68037294",
+      "tls": {
+        "enabled": true,
+        "server_name": "prepared-turkey.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "tag": "%F0%9F%87%B3%F0%9F%87%B1NL-89.39.70.85-0136",
+      "type": "trojan",
+      "server": "89.39.70.85",
+      "server_port": 443,
+      "password": "NQ26071394",
+      "tls": {
+        "enabled": true,
+        "server_name": "grateful-bedbug.rooster465.autos",
+        "insecure": false
+      }
+    },
+    {
+      "type": "selector",
+      "tag": "Proxy",
+      "outbounds": [
+        "Auto",
+        "更新于:02-07 04:00 -by BuLink.xyz- 以下节点不计流量",
+        "github.com/freefq%20-%20%E4%BF%84%E7%BD%97%E6%96%AF%20%201",
+        "github.com/freefq - 印度  2",
+        "github.com/freefq - 印度  3",
+        "github.com/freefq - 美国CloudFlare公司CDN节点 4",
+        "github.com/freefq%20-%20%E6%B3%A2%E5%85%B0%20%205",
+        "github.com/freefq - 美国CloudFlare公司CDN节点 6",
+        "github.com/freefq - 广东省移动 7",
+        "github.com/freefq%20-%20%E5%B9%BF%E4%B8%9C%E7%9C%81%E6%B1%9F%E9%97%A8%E5%B8%82%E7%A7%BB%E5%8A%A8%208",
+        "github.com/freefq - 美国CloudFlare公司CDN节点 9",
+        "github.com/freefq - 印度  10",
+        "github.com/freefq%20-%20%E5%B9%BF%E4%B8%9C%E7%9C%81%E6%B1%9F%E9%97%A8%E5%B8%82%E7%A7%BB%E5%8A%A8%2011",
+        "github.com/freefq%20-%20%E5%B9%BF%E4%B8%9C%E7%9C%81%E6%B1%9F%E9%97%A8%E5%B8%82%E7%A7%BB%E5%8A%A8%2012",
+        "github.com/freefq - 美国Fastly全球Anycast节点 13",
+        "github.com/freefq - 美国CloudFlare节点 14",
+        "%E4%BF%84%E7%BD%97%E6%96%AF+V2CROSS.COM",
+        "%E5%8D%97%E9%9D%9E+V2CROSS.COM",
+        "%E5%8D%B0%E5%BA%A6+V2CROSS.COM",
+        "%E7%BE%8E%E5%9B%BD+V2CROSS.COM",
+        "%E4%BC%8A%E6%9C%97+V2CROSS.COM",
+        "%E8%8D%B7%E5%85%B0+V2CROSS.COM",
+        "%E5%8D%97%E9%9D%9E+V2CROSS.COM",
+        "%E7%BE%8E%E5%9B%BD+V2CROSS.COM",
+        "%F0%9F%87%BA%F0%9F%87%B8US-37.19.198.244-0062",
+        "%F0%9F%87%A8%F0%9F%87%A6CA-137.184.174.93-0056",
+        "%F0%9F%87%BA%F0%9F%87%B8US-37.19.198.243-0057",
+        "%F0%9F%87%BA%F0%9F%87%B8US-108.181.0.177-0064",
+        "%F0%9F%87%A8%F0%9F%87%A6CA-108.181.118.10-0065",
+        "%F0%9F%87%BA%F0%9F%87%B8US-37.19.198.236-0061",
+        "%F0%9F%87%BA%F0%9F%87%B8US-138.199.42.68-0060"
+      ]
+    },
+    {
+      "type": "urltest",
+      "tag": "Auto",
+      "outbounds": [
+        "更新于:02-07 04:00 -by BuLink.xyz- 以下节点不计流量",
+        "github.com/freefq%20-%20%E4%BF%84%E7%BD%97%E6%96%AF%20%201",
+        "github.com/freefq - 印度  2",
+        "github.com/freefq - 印度  3",
+        "github.com/freefq - 美国CloudFlare公司CDN节点 4",
+        "github.com/freefq%20-%20%E6%B3%A2%E5%85%B0%20%205",
+        "github.com/freefq - 美国CloudFlare公司CDN节点 6",
+        "github.com/freefq - 广东省移动 7",
+        "github.com/freefq%20-%20%E5%B9%BF%E4%B8%9C%E7%9C%81%E6%B1%9F%E9%97%A8%E5%B8%82%E7%A7%BB%E5%8A%A8%208",
+        "github.com/freefq - 美国CloudFlare公司CDN节点 9",
+        "github.com/freefq - 印度  10",
+        "github.com/freefq%20-%20%E5%B9%BF%E4%B8%9C%E7%9C%81%E6%B1%9F%E9%97%A8%E5%B8%82%E7%A7%BB%E5%8A%A8%2011",
+        "github.com/freefq%20-%20%E5%B9%BF%E4%B8%9C%E7%9C%81%E6%B1%9F%E9%97%A8%E5%B8%82%E7%A7%BB%E5%8A%A8%2012",
+        "github.com/freefq - 美国Fastly全球Anycast节点 13",
+        "github.com/freefq - 美国CloudFlare节点 14",
+        "%E4%BF%84%E7%BD%97%E6%96%AF+V2CROSS.COM",
+        "%E5%8D%97%E9%9D%9E+V2CROSS.COM",
+        "%E5%8D%B0%E5%BA%A6+V2CROSS.COM",
+        "%E7%BE%8E%E5%9B%BD+V2CROSS.COM",
+        "%E4%BC%8A%E6%9C%97+V2CROSS.COM",
+        "%E8%8D%B7%E5%85%B0+V2CROSS.COM",
+        "%E5%8D%97%E9%9D%9E+V2CROSS.COM",
+        "%E7%BE%8E%E5%9B%BD+V2CROSS.COM",
+        "%F0%9F%87%BA%F0%9F%87%B8US-37.19.198.244-0062",
+        "%F0%9F%87%A8%F0%9F%87%A6CA-137.184.174.93-0056",
+        "%F0%9F%87%BA%F0%9F%87%B8US-37.19.198.243-0057",
+        "%F0%9F%87%BA%F0%9F%87%B8US-108.181.0.177-0064",
+        "%F0%9F%87%A8%F0%9F%87%A6CA-108.181.118.10-0065",
+        "%F0%9F%87%BA%F0%9F%87%B8US-37.19.198.236-0061",
+        "%F0%9F%87%BA%F0%9F%87%B8US-138.199.42.68-0060"
+      ],
+      "url": "http://www.gstatic.com/generate_204",
+      "interval": "300s",
+      "tolerance": 50
+    }
+  ],
+  "route": {
+    "rules": [
+      {
+        "clash_mode": "direct",
+        "outbound": "direct"
+      },
+      {
+        "clash_mode": "global",
+        "outbound": "Proxy"
+      },
+      {
+        "rule_set": "geosite-cn",
+        "outbound": "direct"
+      },
+      {
+        "rule_set": "geoip-cn",
+        "outbound": "direct"
+      },
+      {
+        "rule_set": "geosite-geolocation-!cn",
+        "outbound": "Proxy"
+      }
+    ],
+    "rule_set": [
+      {
+        "tag": "geosite-cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-cn.srs",
+        "http_client": "download"
+      },
+      {
+        "tag": "geoip-cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs",
+        "http_client": "download"
+      },
+      {
+        "tag": "geosite-geolocation-!cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-!cn.srs",
+        "http_client": "download"
+      }
+    ],
+    "auto_detect_interface": true,
+    "final": "Proxy"
+  },
+  "http_clients": [
+    {
+      "tag": "download",
+      "type": "http",
+      "outbound": "direct"
+    }
+  ]
+}
